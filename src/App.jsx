@@ -1,5 +1,6 @@
 import React from "react";
 import { createRoot } from 'react-dom/client';
+import MicroFrontendPlugin from 'microFrontendPlugin/MicroFrontendPlugin';
 
 import "./index.scss";
 
@@ -10,6 +11,8 @@ const App = () => (
     <div>Language: JavaScript</div>
     <div>CSS: Tailwind</div>
     <div>Version: v2</div>
+    <br/>
+    <MicroFrontendPlugin/>
   </div>
 );
 

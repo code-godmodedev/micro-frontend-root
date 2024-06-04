@@ -4,7 +4,7 @@ const Dotenv = require('dotenv-webpack');
 const deps = require("./package.json").dependencies;
 module.exports = (_, argv) => ({
   output: {
-    publicPath: "/v2/",
+    publicPath: "http://micro-frontend-root.s3-website.ap-south-1.amazonaws.com/v3/",
   },
 
   resolve: {
@@ -41,9 +41,11 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "first_mf_app",
+      name: "microFrontendRoot",
       filename: "remoteEntry.js",
-      remotes: {},
+      remotes: {
+        'microFrontendPlugin': 'microFrontendPlugin@http://micro-frontend-plugin.s3-website.ap-south-1.amazonaws.com/v1/remoteEntry.js'
+      },
       exposes: {},
       shared: {
         ...deps,
